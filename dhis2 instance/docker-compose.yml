@@ -9,8 +9,10 @@ services:
       POSTGRES_PASSWORD: dhis
     volumes:
     - ./config/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+    - "5432:5432"
   web:
-    image: dhis2/core:2.33.0
+    image: dhis2/core:2.36.13.1
     volumes:
     - ./config/dhis2_home/dhis.conf:/DHIS2_home/dhis.conf
     environment:
